@@ -6,8 +6,9 @@ const jwt = require("jsonwebtoken");
 const generateAccessToken = (id, Email) => {
   return jwt.sign({ userId: id, Email: Email }, process.env.JWT_SECRET);
 };
+
 const getMainPage = (req, res, next) => {
-  res.sendFile(path.join(__dirname, "../", "views", "signup.html"));
+  res.sendFile(path.join(__dirname, "../", "views", "login.html"));
 };
 
 const postUserSignUP = async (req, res, next) => {
@@ -41,6 +42,7 @@ const postUserSignUP = async (req, res, next) => {
     console.log(err);
   }
 };
+
 const postUserLogin = async (req, res, next) => {
   try {
     const Email = req.body.loginEmail;
@@ -82,4 +84,5 @@ module.exports = {
   getMainPage,
   postUserSignUP,
   postUserLogin,
+  generateAccessToken,
 };

@@ -10,6 +10,8 @@ const app = express();
 const bodyParser = require("body-parser");
 const sequelize = require("./utils/database");
 const userRouter = require("./routes/userRoutes");
+const homePageRouter = require("./routes/homePageRotes");
+
 const PORT = process.env.PORT;
 
 app.use(express.json());
@@ -25,6 +27,7 @@ app.use(
 
 app.use("/", userRouter);
 app.use("/user", userRouter);
+app.use("/homePage", homePageRouter);
 
 sequelize
   .sync()
