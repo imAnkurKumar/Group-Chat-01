@@ -9,5 +9,5 @@ router.post(
   Authorization.authentication,
   chatController.messageStoreToDatabase
 );
-
+router.get("/getMessages", chatController.getAllChats);
 module.exports = router;

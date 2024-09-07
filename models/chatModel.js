@@ -8,6 +8,9 @@ const Chat = sequelize.define("chats", {
     autoIncrement: true,
     allowNull: false,
   },
+  Name: {
+    type: Sequelize.STRING,
+  },
   Message: {
     type: Sequelize.STRING,
     allowNull: false,
