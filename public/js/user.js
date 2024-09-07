@@ -17,9 +17,9 @@ loginBtn.addEventListener("click", logindata);
 async function signUpdata() {
   try {
     if (
-      uname.value === "" &&
-      uemail.value === "" &&
-      uphone.value === "" &&
+      uname.value === "" ||
+      uemail.value === "" ||
+      uphone.value === "" ||
       upassword.value === ""
     ) {
       alert("Please fill all the fields");
@@ -44,7 +44,7 @@ async function signUpdata() {
 
 async function logindata(e) {
   try {
-    if (loginEmail.value == "" && loginPassword.value == "") {
+    if (loginEmail.value == "" || loginPassword.value == "") {
       alert("Please enter all the fields");
     } else {
       const loginDetails = {

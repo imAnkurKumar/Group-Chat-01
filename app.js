@@ -11,6 +11,10 @@ const bodyParser = require("body-parser");
 const sequelize = require("./utils/database");
 const userRouter = require("./routes/userRoutes");
 const homePageRouter = require("./routes/homePageRotes");
+const chatRouter = require("./routes/chatRoutes");
+
+const User = require("./models/userModel");
+const Chat = require("./models/chatModel");
 
 const PORT = process.env.PORT;
 
@@ -28,7 +32,10 @@ app.use(
 app.use("/", userRouter);
 app.use("/user", userRouter);
 app.use("/homePage", homePageRouter);
+app.use("/chat", chatRouter);
 
+User.hasMany(Chat, { constraints: true, onDelete: "CASCADE" });
+Chat.belongsTo(User);
 sequelize
   .sync()
   .then(() => {
